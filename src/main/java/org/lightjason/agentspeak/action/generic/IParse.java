@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.error.context.CExecutionIllegealArgumentException;

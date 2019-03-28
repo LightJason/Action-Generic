@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.common.IPath;
 import org.lightjason.agentspeak.language.CRawTerm;
@@ -38,7 +38,7 @@ import java.util.Map;
  * and returns the value, the action fails on
  * parsing errors
  *
- * {@code [X|Y|Z] = .generic/type/parsenumber( "1.45", ["8.88", "9"] );}
+ * {@code [X|Y|Z] = .generic/parsenumber( "1.45", ["8.88", "9"] );}
  */
 public final class CParseNumber extends IParse
 {
@@ -49,7 +49,7 @@ public final class CParseNumber extends IParse
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CParseNumber.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CParseNumber.class, "generic" );
 
     @Nonnull
     @Override

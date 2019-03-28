@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.common.IPath;
@@ -41,7 +41,7 @@ import java.util.stream.Stream;
  * The actions returns for each argument the data type
  * as a string name
  *
- * {@code [T1|T2] = .generic/type/type( A, B );}
+ * {@code [T1|T2] = .generic/type( A, B );}
  */
 public final class CType extends IBaseAction
 {
@@ -52,7 +52,7 @@ public final class CType extends IBaseAction
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CType.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CType.class, "generic" );
 
     @Nonnull
     @Override

@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.common.IPath;
@@ -46,7 +46,7 @@ import java.util.stream.Stream;
  * if one of the arguments are not an instance of this
  * class or the class does not exist
  *
- * {@code .generic/type( "java.lang.String", X, Y, Z );}
+ * {@code .generic/is( "java.lang.String", X, Y, Z );}
  */
 public final class CIs extends IBaseAction
 {
@@ -57,7 +57,7 @@ public final class CIs extends IBaseAction
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CIs.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CIs.class, "generic" );
 
     @Nonnull
     @Override

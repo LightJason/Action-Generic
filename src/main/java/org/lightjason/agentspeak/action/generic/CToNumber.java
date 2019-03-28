@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.common.IPath;
 import org.lightjason.agentspeak.language.CRawTerm;
@@ -36,7 +36,7 @@ import java.util.List;
  * Cast any argument into a number,
  * the action fails on casting errors
  *
- * {@code [N1|N2] = .generic/type/tonumber( X, Y );}
+ * {@code [N1|N2] = .generic/tonumber( X, Y );}
  */
 public final class CToNumber extends ICast
 {
@@ -47,7 +47,7 @@ public final class CToNumber extends ICast
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CToNumber.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CToNumber.class, "generic" );
 
     @Nonnull
     @Override

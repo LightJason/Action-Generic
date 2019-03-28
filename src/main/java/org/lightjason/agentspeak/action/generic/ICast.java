@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.error.context.CExecutionIllegealArgumentException;
@@ -37,12 +37,7 @@ import java.util.stream.Stream;
 
 
 /**
- * abstract class to cast / translate a value.
- * The action converts each input argument into
- * the string represenation and returns the string,
- * the action never fails
- *
- * {@code [A|B|C] = generic/type/tostring( X, Y Z );}
+ * abstract class to cast / translate a value
  */
 public abstract class ICast extends IBaseAction
 {

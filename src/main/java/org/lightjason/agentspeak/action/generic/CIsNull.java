@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.common.IPath;
@@ -43,7 +43,7 @@ import java.util.stream.Stream;
  * values, the action fails if one of the
  * arguments is not null
  *
- * {@code .generic/type(X,Y);}
+ * {@code .generic/isnull(X,Y);}
  */
 public final class CIsNull extends IBaseAction
 {
@@ -54,7 +54,7 @@ public final class CIsNull extends IBaseAction
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CIsNull.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CIsNull.class, "generic" );
 
     @Nonnull
     @Override

@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.common.IPath;
 import org.lightjason.agentspeak.language.CLiteral;
@@ -39,7 +39,7 @@ import java.util.Map;
  * and returns the value, the action fails on
  * parsing errors
  *
- * {@code [X|Y|Z] = .generic/type/parseliteral( "foo(5)", [ "bar(foo('abcd')", "xxx()[source(3)]" ] );}
+ * {@code [X|Y|Z] = .generic/parseliteral( "foo(5)", [ "bar(foo('abcd')", "xxx()[source(3)]" ] );}
  */
 public final class CParseLiteral extends IParse
 {
@@ -50,7 +50,7 @@ public final class CParseLiteral extends IParse
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CParseLiteral.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CParseLiteral.class, "generic" );
 
     @Nonnull
     @Override

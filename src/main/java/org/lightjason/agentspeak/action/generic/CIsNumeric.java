@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.common.IPath;
@@ -42,7 +42,7 @@ import java.util.stream.Stream;
  * values, the action fails if one of the
  * arguments is not a numeric value
  *
- * {@code .generic/type/isnumeric( X, 3.5 );}
+ * {@code .generic/isnumeric( X, 3.5 );}
  */
 public final class CIsNumeric extends IBaseAction
 {
@@ -53,7 +53,7 @@ public final class CIsNumeric extends IBaseAction
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CIsNumeric.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CIsNumeric.class, "generic" );
 
     @Nonnull
     @Override

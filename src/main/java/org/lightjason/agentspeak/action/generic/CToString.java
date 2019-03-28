@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.common.IPath;
 import org.lightjason.agentspeak.language.CRawTerm;
@@ -36,7 +36,7 @@ import java.util.List;
  * The action converts any argument into the string
  * represenation, the action never fails
  *
- * {@code [A|B] = .generic/type/tostring( 1, "foo" );}
+ * {@code [A|B] = .generic/tostring( 1, "foo" );}
  */
 public final class CToString extends ICast
 {
@@ -47,7 +47,7 @@ public final class CToString extends ICast
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CToString.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CToString.class, "generic" );
 
     @Nonnull
     @Override

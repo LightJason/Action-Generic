@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.common.IPath;
@@ -44,7 +44,7 @@ import java.util.stream.Stream;
  * all other arguments will be used for the literal
  * values
  *
- * {@code L = .generic/type/createliteral( "literal/functor/with/path", 123, "value" );}
+ * {@code L = .generic/createliteral( "literal/functor/with/path", 123, "value" );}
  */
 public final class CCreateLiteral extends IBaseAction
 {
@@ -55,7 +55,7 @@ public final class CCreateLiteral extends IBaseAction
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CCreateLiteral.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CCreateLiteral.class, "generic" );
 
     @Nonnull
     @Override

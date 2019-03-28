@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import org.lightjason.agentspeak.action.IBaseAction;
 import org.lightjason.agentspeak.common.IPath;
@@ -41,7 +41,7 @@ import java.util.stream.Stream;
  * All arguments are checked if all are string values,
  * the action fails if one of the arguments is not a string
  *
- * {@code .generic/type/isstring( "foo", "bar", 123 );}
+ * {@code .generic/isstring( "foo", "bar", 123 );}
  */
 public final class CIsString extends IBaseAction
 {
@@ -52,7 +52,7 @@ public final class CIsString extends IBaseAction
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CIsString.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CIsString.class, "generic" );
 
     @Nonnull
     @Override

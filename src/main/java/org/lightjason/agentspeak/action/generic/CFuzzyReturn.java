@@ -21,7 +21,7 @@
  * @endcond
  */
 
-package org.lightjason.agentspeak.action.generic.type;
+package org.lightjason.agentspeak.action.generic;
 
 import com.codepoetics.protonpack.StreamUtils;
 import org.lightjason.agentspeak.action.IBaseAction;
@@ -44,7 +44,7 @@ import java.util.stream.Stream;
  * and returns this values as result of the action,
  * the action fails on wrong input
  *
- * {@code .generic/type/fuzzyreturn( true, 0.4);}
+ * {@code .generic/fuzzyreturn( true, 0.4);}
  */
 public final class CFuzzyReturn extends IBaseAction
 {
@@ -55,7 +55,7 @@ public final class CFuzzyReturn extends IBaseAction
     /**
      * action name
      */
-    private static final IPath NAME = namebyclass( CFuzzyReturn.class, "generic", "type" );
+    private static final IPath NAME = namebyclass( CFuzzyReturn.class, "generic" );
 
     @Nonnull
     @Override
