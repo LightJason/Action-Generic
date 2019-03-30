@@ -31,7 +31,7 @@
     <!-- project meta information -->
     <name>LightJason AgentSpeak(L++) - Generic Action</name>
     <description>AgentSpeak(L++) action for generic structure</description>
-    <url>https://github.com/LightJason/AgentSpeak</url>
+    <url>https://github.com/LightJason/Java-Action-Generic</url>
     
     <organization>
         <name>LightJason</name>
@@ -47,13 +47,13 @@
     
     <issueManagement>
         <system>GitHub Issues</system>
-        <url>https://github.com/LightJason/Action-Generic/issues</url>
+        <url>https://github.com/LightJason/Java-Action-Generic/issues</url>
     </issueManagement>
     
     <scm>
         <url>https://github.com/LightJason/Action-Generic</url>
-        <connection>scm:git:git://github.com:LightJason/Action-Generic.git</connection>
-        <developerConnection>scm:git:git@github.com:LightJason/Action-Generic.git</developerConnection>
+        <connection>scm:git:git://github.com:LightJason/Java-Action-Generic.git</connection>
+        <developerConnection>scm:git:git@github.com:LightJason/Java-Action-Generic.git</developerConnection>
         <tag>v0.0.1</tag>
     </scm>
     
