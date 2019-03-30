@@ -51,7 +51,7 @@
     </issueManagement>
     
     <scm>
-        <url>https://github.com/LightJason/Action-Generic</url>
+        <url>https://github.com/LightJason/Java-Action-Generic</url>
         <connection>scm:git:git://github.com:LightJason/Java-Action-Generic.git</connection>
         <developerConnection>scm:git:git@github.com:LightJason/Java-Action-Generic.git</developerConnection>
         <tag>v0.0.1</tag>
