@@ -79,7 +79,7 @@ public final class CThrow extends IBaseAction
             throw p_argument.size() == 1 ? new CExecutionException( p_context ) : new CExecutionException(
                 p_context, p_argument.get( 1 ).<String>raw()
             );
-        return Stream.of();
+        return Stream.empty();
     }
 
 }

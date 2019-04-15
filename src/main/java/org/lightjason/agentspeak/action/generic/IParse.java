@@ -69,7 +69,7 @@ public abstract class IParse extends IBaseAction
                 org.lightjason.agentspeak.common.CCommon.languagestring( IParse.class, "parseerror" )
             );
 
-        return Stream.of();
+        return Stream.empty();
     }
 
 

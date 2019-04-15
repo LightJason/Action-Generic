@@ -85,7 +85,7 @@ public final class CCreateLiteral extends IBaseAction
                 : Collections.emptyList()
             )
         );
-        return Stream.of();
+        return Stream.empty();
     }
 
 }

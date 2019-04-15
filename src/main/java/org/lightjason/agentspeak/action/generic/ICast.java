@@ -65,7 +65,7 @@ public abstract class ICast extends IBaseAction
                 org.lightjason.agentspeak.common.CCommon.languagestring( ICast.class, "cannotcast" )
             );
 
-        return Stream.of();
+        return Stream.empty();
     }
 
 

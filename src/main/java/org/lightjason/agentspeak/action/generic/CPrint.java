@@ -157,7 +157,7 @@ public final class CPrint extends IBaseAction
     )
     {
         m_stream.println( MessageFormat.format( "{0}", this.format( p_argument ) ) );
-        return Stream.of();
+        return Stream.empty();
     }
 
     /**

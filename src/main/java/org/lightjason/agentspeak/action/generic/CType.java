@@ -75,6 +75,6 @@ public final class CType extends IBaseAction
     )
     {
         p_argument.stream().map( ITerm::raw ).map( i -> i.getClass().getCanonicalName() ).map( CRawTerm::of ).forEach( p_return::add );
-        return Stream.of();
+        return Stream.empty();
     }
 }

@@ -76,6 +76,6 @@ public final class CUuid extends IBaseAction
             )
         );
 
-        return Stream.of();
+        return Stream.empty();
     }
 }
