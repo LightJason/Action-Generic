@@ -43,7 +43,7 @@ import java.util.stream.Stream;
  *
  * {@code U1 = .generic/uuid(); }
  *
- * @see https://en.wikipedia.org/wiki/Universally_unique_identifier
+ * @see <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier"></a>
  */
 public final class CUuid extends IBaseAction
 {
