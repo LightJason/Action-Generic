@@ -23,8 +23,8 @@
 
 package org.lightjason.agentspeak.action.generic;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.lightjason.agentspeak.error.context.CExecutionException;
 import org.lightjason.agentspeak.error.context.CExecutionIllegealArgumentException;
 import org.lightjason.agentspeak.language.CLiteral;
@@ -55,13 +55,16 @@ public final class TestCActionGeneric extends IBaseTest
     /**
      * test throw action
      */
-    @Test( expected = CExecutionException.class )
+    @Test
     public void throwparameter()
     {
-        new CThrow().execute(
-            false, IContext.EMPTYPLAN,
-            Stream.of( true, "test message" ).map( CRawTerm::of ).collect( Collectors.toList() ),
-            Collections.emptyList()
+        Assertions.assertThrows(
+            CExecutionException.class,
+            () -> new CThrow().execute(
+                    false, IContext.EMPTYPLAN,
+                    Stream.of( true, "test message" ).map( CRawTerm::of ).collect( Collectors.toList() ),
+                    Collections.emptyList()
+                )
         );
     }
 
@@ -69,13 +72,16 @@ public final class TestCActionGeneric extends IBaseTest
     /**
      * test throw action
      */
-    @Test( expected = CExecutionException.class )
+    @Test
     public void throwwithoutparameter()
     {
-        new CThrow().execute(
+        Assertions.assertThrows(
+            CExecutionException.class,
+            () -> new CThrow().execute(
             false, IContext.EMPTYPLAN,
-            Stream.of( true ).map( CRawTerm::of ).collect( Collectors.toList() ),
-            Collections.emptyList()
+                Stream.of( true ).map( CRawTerm::of ).collect( Collectors.toList() ),
+                Collections.emptyList()
+            )
         );
     }
 
@@ -111,7 +117,7 @@ public final class TestCActionGeneric extends IBaseTest
             Collections.emptyList()
         );
 
-        Assert.assertEquals( "foobar-1234-true\n", l_output.toString( StandardCharsets.UTF_8 ) );
+        Assertions.assertEquals( "foobar-1234-true\n", l_output.toString( StandardCharsets.UTF_8 ) );
 
 
         l_output.reset();
@@ -121,7 +127,7 @@ public final class TestCActionGeneric extends IBaseTest
             Collections.emptyList()
         );
 
-        Assert.assertEquals( "\n", l_output.toString( StandardCharsets.UTF_8 ) );
+        Assertions.assertEquals( "\n", l_output.toString( StandardCharsets.UTF_8 ) );
 
     }
 
@@ -139,7 +145,7 @@ public final class TestCActionGeneric extends IBaseTest
         l_print.formatter().add( new CStringFormatter() );
         l_print.formatter().add( new CBooleanFormatter() );
 
-        Assert.assertTrue(
+        Assertions.assertTrue(
             execute(
                 l_print,
                 false,
@@ -148,7 +154,7 @@ public final class TestCActionGeneric extends IBaseTest
             )
         );
 
-        Assert.assertEquals( "FOOBAR-1234-yes\n", l_output.toString( StandardCharsets.UTF_8 ) );
+        Assertions.assertEquals( "FOOBAR-1234-yes\n", l_output.toString( StandardCharsets.UTF_8 ) );
     }
 
     /**
@@ -165,9 +171,9 @@ public final class TestCActionGeneric extends IBaseTest
             l_return
         );
 
-        Assert.assertEquals( 1, l_return.size() );
-        Assert.assertEquals( String.class, l_return.get( 0 ).raw().getClass() );
-        Assert.assertTrue( !l_return.get( 0 ).<String>raw().isEmpty() );
+        Assertions.assertEquals( 1, l_return.size() );
+        Assertions.assertEquals( String.class, l_return.get( 0 ).raw().getClass() );
+        Assertions.assertFalse( l_return.get( 0 ).<String>raw().isEmpty() );
     }
 
 
@@ -185,8 +191,8 @@ public final class TestCActionGeneric extends IBaseTest
             l_return
         );
 
-        Assert.assertEquals( 1, l_return.size() );
-        Assert.assertEquals(
+        Assertions.assertEquals( 1, l_return.size() );
+        Assertions.assertEquals(
             CLiteral.of(
                 "functor",
                 CRawTerm.of( "stringvalue" ),
@@ -212,8 +218,8 @@ public final class TestCActionGeneric extends IBaseTest
             l_return
         );
 
-        Assert.assertEquals( 1, l_return.size() );
-        Assert.assertEquals(
+        Assertions.assertEquals( 1, l_return.size() );
+        Assertions.assertEquals(
             CLiteral.of(
                 "main/parsefunctor",
                 CRawTerm.of( "hello" ),
@@ -228,16 +234,19 @@ public final class TestCActionGeneric extends IBaseTest
     /**
      * test parse literal action with error
      */
-    @Test( expected = CExecutionIllegealArgumentException.class )
+    @Test
     public void parseliteralerror()
     {
         final List<ITerm> l_return = new ArrayList<>();
 
-        new CParseLiteral().execute(
-            false,
-            IContext.EMPTYPLAN,
-            Stream.of( "Main/parsefunctor( hello, XXXXX, false )" ).map( CRawTerm::of ).collect( Collectors.toList() ),
-            l_return
+        Assertions.assertThrows(
+            CExecutionIllegealArgumentException.class,
+            () -> new CParseLiteral().execute(
+                false,
+                IContext.EMPTYPLAN,
+                Stream.of( "Main/parsefunctor( hello, XXXXX, false )" ).map( CRawTerm::of ).collect( Collectors.toList() ),
+                l_return
+            )
         );
     }
 
@@ -256,24 +265,27 @@ public final class TestCActionGeneric extends IBaseTest
             l_return
         );
 
-        Assert.assertEquals( 3, l_return.size() );
-        Assert.assertEquals( 732.489, l_return.get( 0 ).<Number>raw().doubleValue(), 0 );
-        Assert.assertEquals( 64.091248, l_return.get( 1 ).<Number>raw().doubleValue(), 0 );
-        Assert.assertEquals( -78129.01, l_return.get( 2 ).<Number>raw().doubleValue(), 0 );
+        Assertions.assertEquals( 3, l_return.size() );
+        Assertions.assertEquals( 732.489, l_return.get( 0 ).<Number>raw().doubleValue(), 0 );
+        Assertions.assertEquals( 64.091248, l_return.get( 1 ).<Number>raw().doubleValue(), 0 );
+        Assertions.assertEquals( -78129.01, l_return.get( 2 ).<Number>raw().doubleValue(), 0 );
     }
 
     /**
      * test parse-float action error
      */
-    @Test( expected = CExecutionIllegealArgumentException.class )
+    @Test
     public void parsefloaterror()
     {
         final List<ITerm> l_return = new ArrayList<>();
 
-        new CParseNumber().execute(
-            false, IContext.EMPTYPLAN,
-            Stream.of( "foo" ).map( CRawTerm::of ).collect( Collectors.toList() ),
-            l_return
+        Assertions.assertThrows(
+            CExecutionIllegealArgumentException.class,
+            () -> new CParseNumber().execute(
+                false, IContext.EMPTYPLAN,
+                Stream.of( "foo" ).map( CRawTerm::of ).collect( Collectors.toList() ),
+                l_return
+            )
         );
     }
 
@@ -292,11 +304,11 @@ public final class TestCActionGeneric extends IBaseTest
             l_return
         );
 
-        Assert.assertEquals( 4, l_return.size() );
-        Assert.assertEquals( "java.util.ArrayList", l_return.get( 0 ).<String>raw() );
-        Assert.assertEquals( "java.lang.Long", l_return.get( 1 ).<String>raw() );
-        Assert.assertEquals( "java.lang.String", l_return.get( 2 ).<String>raw() );
-        Assert.assertEquals( "java.util.HashSet", l_return.get( 3 ).<String>raw() );
+        Assertions.assertEquals( 4, l_return.size() );
+        Assertions.assertEquals( "java.util.ArrayList", l_return.get( 0 ).<String>raw() );
+        Assertions.assertEquals( "java.lang.Long", l_return.get( 1 ).<String>raw() );
+        Assertions.assertEquals( "java.lang.String", l_return.get( 2 ).<String>raw() );
+        Assertions.assertEquals( "java.util.HashSet", l_return.get( 3 ).<String>raw() );
     }
 
 
@@ -306,7 +318,7 @@ public final class TestCActionGeneric extends IBaseTest
     @Test
     public void is()
     {
-        Assert.assertFalse(
+        Assertions.assertFalse(
             execute(
                 new CIs(),
                 false,
@@ -315,7 +327,7 @@ public final class TestCActionGeneric extends IBaseTest
             )
         );
 
-        Assert.assertTrue(
+        Assertions.assertTrue(
             execute(
                 new CIs(),
                 false,
@@ -332,7 +344,7 @@ public final class TestCActionGeneric extends IBaseTest
     @Test
     public void isnull()
     {
-        Assert.assertFalse(
+        Assertions.assertFalse(
             execute(
                 new CIsNull(),
                 false,
@@ -341,7 +353,7 @@ public final class TestCActionGeneric extends IBaseTest
             )
         );
 
-        Assert.assertTrue(
+        Assertions.assertTrue(
             execute(
                 new CIsNull(),
                 false,
@@ -358,7 +370,7 @@ public final class TestCActionGeneric extends IBaseTest
     @Test
     public void isnumeric()
     {
-        Assert.assertFalse(
+        Assertions.assertFalse(
             execute(
                 new CIsNumeric(),
                 false,
@@ -367,7 +379,7 @@ public final class TestCActionGeneric extends IBaseTest
             )
         );
 
-        Assert.assertTrue(
+        Assertions.assertTrue(
             execute(
                 new CIsNumeric(),
                 false,
@@ -384,7 +396,7 @@ public final class TestCActionGeneric extends IBaseTest
     @Test
     public void isstring()
     {
-        Assert.assertFalse(
+        Assertions.assertFalse(
             execute(
                 new CIsString(),
                 false,
@@ -393,7 +405,7 @@ public final class TestCActionGeneric extends IBaseTest
             )
         );
 
-        Assert.assertTrue(
+        Assertions.assertTrue(
             execute(
                 new CIsString(),
                 false,
@@ -418,11 +430,11 @@ public final class TestCActionGeneric extends IBaseTest
             l_return
         );
 
-        Assert.assertEquals( 4, l_return.size() );
-        Assert.assertTrue( l_return.get( 0 ).<String>raw().isEmpty() );
-        Assert.assertEquals( "123", l_return.get( 1 ).raw() );
-        Assert.assertEquals( "5.5", l_return.get( 2 ).raw() );
-        Assert.assertTrue( l_return.get( 3 ).raw() instanceof String );
+        Assertions.assertEquals( 4, l_return.size() );
+        Assertions.assertTrue( l_return.get( 0 ).<String>raw().isEmpty() );
+        Assertions.assertEquals( "123", l_return.get( 1 ).raw() );
+        Assertions.assertEquals( "5.5", l_return.get( 2 ).raw() );
+        Assertions.assertTrue( l_return.get( 3 ).raw() instanceof String );
     }
 
 
@@ -440,22 +452,25 @@ public final class TestCActionGeneric extends IBaseTest
             l_return
         );
 
-        Assert.assertEquals( 3, l_return.size() );
-        Assert.assertTrue( l_return.get( 0 ).raw() instanceof Double );
-        Assert.assertTrue( l_return.get( 1 ).raw() instanceof Double );
-        Assert.assertTrue( l_return.get( 2 ).raw() instanceof Double );
+        Assertions.assertEquals( 3, l_return.size() );
+        Assertions.assertTrue( l_return.get( 0 ).raw() instanceof Double );
+        Assertions.assertTrue( l_return.get( 1 ).raw() instanceof Double );
+        Assertions.assertTrue( l_return.get( 2 ).raw() instanceof Double );
     }
 
     /**
      * test cast error
      */
-    @Test( expected = CExecutionIllegealArgumentException.class )
+    @Test
     public void tonumbererror()
     {
-        new CToNumber().execute(
-            false, IContext.EMPTYPLAN,
-            Stream.of( "io" ).map( CRawTerm::of ).collect( Collectors.toList() ),
-            Collections.emptyList()
+        Assertions.assertThrows(
+            CExecutionIllegealArgumentException.class,
+            () -> new CToNumber().execute(
+                false, IContext.EMPTYPLAN,
+                Stream.of( "io" ).map( CRawTerm::of ).collect( Collectors.toList() ),
+                Collections.emptyList()
+            )
         );
     }
 
@@ -465,7 +480,7 @@ public final class TestCActionGeneric extends IBaseTest
     @Test
     public void fuzzyreturn()
     {
-        Assert.assertTrue(
+        Assertions.assertTrue(
             execute(
                 new CFuzzyReturn(),
                 false,
@@ -474,7 +489,7 @@ public final class TestCActionGeneric extends IBaseTest
             )
         );
 
-        Assert.assertFalse(
+        Assertions.assertFalse(
             execute(
                 new CFuzzyReturn(),
                 false,
