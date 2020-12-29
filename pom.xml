@@ -96,7 +96,6 @@
         <!-- will be set outside (build parameter) -->
         <build.number />
         <build.commit />
-        <coverall.token />
     </properties>
     
     
